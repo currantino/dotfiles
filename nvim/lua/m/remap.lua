@@ -15,3 +15,4 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>y", "\"+Y")
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true })
+vim.keymap.set("n", "<leader>ff", "<cmd>!clang-format -i %<CR>", {silent = true})
