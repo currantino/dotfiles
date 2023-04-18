@@ -8,6 +8,7 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -85,6 +86,16 @@ font pango:SourceCodePro Bold 14
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+
+    # Screen capture
+    # Current window
+    bindsym $mod+p          exec grimshot save active
+    # Select area
+    bindsym $mod+Shift+p    exec grimshot save area
+    #Current output
+    bindsym $mod+$alt+p     exec grimshot save output
+    #Select a window        
+    bindsym $mod+Ctrl+p     exec grimshot save window
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -221,4 +232,7 @@ bar {
 
 include /etc/sway/config.d/*
 
-bindsym $mod+x exec swaylock -c ff2695
+# Magenta lock screen
+#bindsym $mod+x exec swaylock -c ff2695
+# Corrupted lock screen
+bindsym $mod+x exec swaylock-corrupter
